@@ -15,14 +15,10 @@ class Search extends React.Component {
 
     _loadFilms() {
         if (this.searchedText.length > 0) {
-            console.log(this.state.isLoading)
             this.setState({ isLoading: true })
-            console.log(this.state.isLoading)
             getFilmsFromApiWithSearchedText(this.searchedText).then(data => {
                 this.setState({ films: data.results, 
                     isLoading: false })
-                console.log(this.state.isLoading)
-
             })
         }
     }
@@ -33,6 +29,7 @@ class Search extends React.Component {
     }
 
     render() {
+        console.log(this.state.isLoading)
         return (
             <View style={styles.main_container}>
                 <TextInput
